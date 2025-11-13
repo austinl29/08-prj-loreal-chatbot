@@ -8,59 +8,126 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: #111;
   display: flex;
   justify-content: center;
+  background: #f5f5f5;
 }
 
 .page-wrapper {
   width: 90%;
   max-width: 900px;
+  padding-bottom: 40px;
 }
 
-/* header */
+/* ===== Header / Branding ===== */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.loreal-logo {
+  max-width: 220px;
+  height: auto;
+  margin-bottom: 16px;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-/* chat window */
+.site-tagline {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== Chat Area ===== */
 .chatbox {
-  margin: 40px 0;
+  margin: 24px 0 40px;
 }
 
+/* LevelUp: latest question display */
+.current-question {
+  min-height: 32px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  padding: 10px 14px;
+  font-style: italic;
+}
+
+/* Chat window container */
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
-  padding: 20px;
-  font-size: 18px;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  padding: 16px;
+  font-size: 16px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
-  white-space: pre-line;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* messages */
+/* ===== Chat message bubbles (LevelUp: Conversation UI) ===== */
+
+.msg-row {
+  display: flex;
+  width: 100%;
+}
+
+.msg-row.user {
+  justify-content: flex-end;
+}
+
+.msg-row.ai {
+  justify-content: flex-start;
+}
+
 .msg {
-  margin-bottom: 14px;
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 18px;
   line-height: 1.5;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
+/* User bubble */
 .msg.user {
-  color: #000;
+  background: #f4e5c2; /* soft gold / champagne */
+  color: #111;
+  border-bottom-right-radius: 4px;
 }
 
+/* AI bubble */
 .msg.ai {
-  color: #666666;
+  background: #111111; /* L'Oréal black */
+  color: #ffffff;
+  border-bottom-left-radius: 4px;
 }
 
-/* input row */
+/* Optional small label above messages */
+.msg-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  color: #999;
+}
+
+/* ===== Input row ===== */
 .chat-form {
   display: flex;
   gap: 12px;
@@ -70,28 +137,32 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  border-radius: 24px;
+  border: 1px solid #d0d0d0;
+  font-size: 16px;
+  background: #ffffff;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
+  outline: 2px solid #111111;
   outline-offset: 2px;
 }
 
+/* Send button */
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: #111111;
   color: #fff;
   border: none;
   padding: 12px;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.2s ease, transform 0.08s ease;
 }
 
 .chat-form button .material-icons {
@@ -99,15 +170,16 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #333333;
+  transform: translateY(-1px);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: 2px solid #c8a96a;
+  outline-offset: 3px;
 }
 
-/* visually hidden */
+/* Visually hidden (for screen readers) */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -120,24 +192,26 @@ body {
   border: 0;
 }
 
-/* footer */
+/* ===== Footer ===== */
 .site-footer {
-  margin: 60px 0 40px;
+  margin-top: 40px;
   text-align: center;
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: #777;
 }
 
 .site-footer nav {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: #111111;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  text-decoration: underline;
 }
